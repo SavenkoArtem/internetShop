@@ -17,7 +17,13 @@ window.addEventListener('click', function(event){
             counter: card.querySelector('[data-counter]').innerText,
         }
         
-        const cartItemHTML = `<div class="cart-item" data-id="${productInfo.id}">
+		const itemInCart = cartWrapper.querySelector(`[data-id="${productInfo.id}"]`);
+		
+		if(itemInCart){
+			const counterElement = itemInCart.querySelector('[data-counter]');
+			counterElement.innerText = parseInt(counterElement.innerText) + parseInt(productInfo.counter);
+		} else {
+			const cartItemHTML = `<div class="cart-item" data-id="${productInfo.id}">
 								<div class="cart-item__top">
 									<div class="cart-item__img">
 										<img src="${productInfo.imgSrc}" alt="">
@@ -46,7 +52,10 @@ window.addEventListener('click', function(event){
 								</div>
 							</div>`
 
-        cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);
+        	cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);
+		}
+		
+		card.querySelector('[data-counter]').innerText = '1';
 
 
 
