@@ -9,18 +9,23 @@ window.addEventListener('click', function (event) {
         const counterWrapper = event.target.closest('.counter-wrapper');
         // find counter div
         counter = counterWrapper.querySelector('[data-counter]');
-        
     }    
 
     // Check action Plus
-    if (event.target.dataset.action === 'plus') {        
-        counter.innerText = ++counter.innerText;        
+    if (event.target.dataset.action === 'plus') {
+        counter.innerText = ++counter.innerText;
     }
 
     // Check action Minus
-    if (event.target.dataset.action === 'minus') {        
+    if (event.target.dataset.action === 'minus') {
+
         if (parseInt(counter.innerText) > 1){
             counter.innerText = --counter.innerText;
+        }else if (event.target.closest('.cart-wrapper') && parseInt(counter.innerText) === 1) {
+            event.target.closest('.cart-item').remove();
+
+            // check status Cart - Empty/Full
+		    toggleCartStatus();
         }
     }
 

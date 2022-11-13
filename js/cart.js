@@ -51,14 +51,13 @@ window.addEventListener('click', function(event){
 									</div>
 								</div>
 							</div>`
-
         	cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);
 		}
 		
 		card.querySelector('[data-counter]').innerText = '1';
 
-
-
+		// check status Cart - Empty/Full
+		toggleCartStatus();
     }
 
 })
