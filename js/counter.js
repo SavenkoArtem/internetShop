@@ -26,7 +26,15 @@ window.addEventListener('click', function (event) {
 
             // check status Cart - Empty/Full
 		    toggleCartStatus();
+
+            calcCartPrice();
         }
+    }
+
+    if (event.target.hasAttribute('data-action') && event.target.closest('.cart-wrapper')){
+
+        calcCartPrice();
+
     }
 
 });

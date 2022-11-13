@@ -58,6 +58,8 @@ window.addEventListener('click', function(event){
 
 		// check status Cart - Empty/Full
 		toggleCartStatus();
+		// total sum items
+		calcCartPrice()
     }
 
 })
